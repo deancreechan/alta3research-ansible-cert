@@ -1,74 +1,57 @@
-
-#!/bin/bash
-
-# Variables
-GITLAB_REPO_URL="https://gitlab.com/deancreechan/alta3research-ansible-cert.git"
-
-# Initialize Git repository
-echo "Initializing Git repository..."
-git init
-git remote add origin $GITLAB_REPO_URL
-
-# Create Ansible Playbook
-echo "Creating Ansible playbook..."
-
-cat <<EOL > alta3research-ansiblecert01.yml
 ---
-# Documentation: This Ansible playbook fetches the astronaut details from open-notify API and displays them.
-# Author: Dean Creechan
-# Date: Sept 11 2023
-
-- name: Fetch Astronaut Details and Gather Local Facts
+- name: Alta3 Research Ansible Certification Playbook
   hosts: localhost
   gather_facts: yes
   vars:
-    api_endpoint: http://api.open-notify.org/astros.json
-
+    my_file: "/tmp/alta3_research.txt"
+  
   tasks:
-    - name: Fetch astronauts details from API
-      uri:
-        url: "{{ api_endpoint }}"
-        return_content: yes
-      register: astronauts
+ 
 
-    - name: Display number of astronauts in space
-      debug:
-        msg: "Number of astronauts in space: {{ astronauts.json.number }}"
+  # tasks
+  - name: Make an API request to fetch astronaut data
+    uri:
+      url: http://api.open-notify.org/astros.json
+      return_content: yes
+    register: astronaut_data
 
-    - name: Display astronaut names
-      debug:
-        msg: "Astronaut: {{ item.name }}"
-      with_items: "{{ astronauts.json.people }}"
-EOL
+  - name: Display names of astronauts currently in space
+    debug:
+      msg: "Astronaut {{ item.name }} is currently in space on the {{ item.craft }}."
+    loop: "{{ astronaut_data.json.people }}"
 
-# Create README.md with instructions
-echo "Creating README.md..."
+  - name: Display some gathered facts
+    debug:
+      var: ansible_distribution
 
-cat <<EOL > README.md
-## Alta3 Research Ansible Certification Submission
+  - name: Invoke a simple Bash script to echo 'Hello World' using the Ansible script module
+    script: scripts/hello_world.sh
+    register: script_output
 
-### Prerequisites
+  - name: Display script output
+    debug:
+      var: script_output.stdout_lines
 
-- Ansible v2.10+
-- Internet connection (for API call)
+  - name: Create a file in an idempotent manner
+    copy:
+      dest: "{{ my_file }}"
+      content: "Hello from Alta3 Research!\n"
+      force: no
 
-### Running the Playbook
+  - name: Ensure user 'john' exists for day-to-day tasks
+    user:
+      name: john
+      state: present
 
-1. Clone the repository:
-   git clone $GITLAB_REPO_URL
-   cd alta3research-ansible-cert
+  - name: Check if port 22 (SSH) is open on localhost
+    wait_for:
+      port: 22
+      timeout: 10
+    register: port_check
+    ignore_errors: yes
 
-2. Run the playbook:
-   ansible-playbook alta3research-ansiblecert01.yml
-
-This playbook fetches details of astronauts currently in space and gathers facts of the localhost.
-EOL
-
-# Commit and push to GitLab
-echo "Pushing to GitLab..."
-git add .
-git commit -m "Initial commit with Ansible playbook and README."
-git push -u origin master
-
-echo "Done! Now review the files and send your submission email."
+  - name: Display port status
+    debug:
+      msg: "Port 22 (SSH) is open!"
+    when: port_check is not failed
 
