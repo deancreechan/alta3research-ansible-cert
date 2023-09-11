@@ -4,27 +4,24 @@
   gather_facts: yes
   vars:
     my_file: "/tmp/alta3_research.txt"
-  
+  #tasks to complete the requirments 
   tasks:
- 
-
-  # tasks
   - name: Make an API request to fetch astronaut data
     uri:
       url: http://api.open-notify.org/astros.json
       return_content: yes
     register: astronaut_data
 
+  - name: Filter astronauts on the ISS
+    set_fact:
+      astronauts_on_iss: "{{ astronaut_data.json.people | selectattr('craft', 'equalto', 'ISS') | list }}"
+    
   - name: Display names of astronauts currently in space
     debug:
       msg: "Astronaut {{ item.name }} is currently in space on the {{ item.craft }}."
     loop: "{{ astronaut_data.json.people }}"
 
-  - name: Display some gathered facts
-    debug:
-      var: ansible_distribution
-
-  - name: Invoke a simple Bash script to echo 'Hello from Enbridge' using the Ansible script module
+  - name: Invoke a simple Bash script to echo 'Hello from Enbridge'
     script: scripts/Hello_from_Enbridge.sh
     register: script_output
 
@@ -37,23 +34,23 @@
       dest: "{{ my_file }}"
       content: "Hello from Alta3 Research!\n"
       force: no
-  - name: Display names of astronauts currently on ISS
-  debug:
-    msg: "Astronaut {{ item.name }} is currently on the ISS."
-  loop: "{{ astronaut_data.json.people }}"
-  when: item.craft == "ISS"
 
-  - name: Send each astronaut a reminder message
-  debug:
-    msg: "Reminder sent to {{ item.name }}: Don't forget to eat your vegetables!"
-  loop: "{{ astronaut_data.json.people }}"
-  when: item.craft == "ISS"
+  - name: Display names of astronauts currently on ISS
+    debug:
+      msg: "Astronaut {{ item.name }} is currently on the ISS."
+    loop: "{{ astronauts_on_iss }}"
+
+  - name: Send each astronaut on the ISS a reminder message
+    debug:
+      msg: "Reminder sent to {{ item.name }}: Don't forget to eat your vegetables!"
+    loop: "{{ astronauts_on_iss }}"
 
   - name: Ensure user 'john' exists for day-to-day tasks
     user:
       name: john
       state: present
     become: true
+
   - name: Check if port 22 (SSH) is open on localhost
     wait_for:
       port: 22
@@ -65,4 +62,3 @@
     debug:
       msg: "Port 22 (SSH) is open!"
     when: port_check is not failed
-
