@@ -42,7 +42,7 @@
     user:
       name: john
       state: present
-
+    become: true
   - name: Check if port 22 (SSH) is open on localhost
     wait_for:
       port: 22
