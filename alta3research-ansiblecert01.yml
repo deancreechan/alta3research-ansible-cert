@@ -43,7 +43,7 @@
   loop: "{{ astronaut_data.json.people }}"
   when: item.craft == "ISS"
 
-- name: Send each astronaut a reminder message
+  - name: Send each astronaut a reminder message
   debug:
     msg: "Reminder sent to {{ item.name }}: Don't forget to eat your vegetables!"
   loop: "{{ astronaut_data.json.people }}"
