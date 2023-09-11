@@ -37,6 +37,17 @@
       dest: "{{ my_file }}"
       content: "Hello from Alta3 Research!\n"
       force: no
+  - name: Display names of astronauts currently on ISS
+  debug:
+    msg: "Astronaut {{ item.name }} is currently on the ISS."
+  loop: "{{ astronaut_data.json.people }}"
+  when: item.craft == "ISS"
+
+- name: Send each astronaut a reminder message
+  debug:
+    msg: "Reminder sent to {{ item.name }}: Don't forget to eat your vegetables!"
+  loop: "{{ astronaut_data.json.people }}"
+  when: item.craft == "ISS"
 
   - name: Ensure user 'john' exists for day-to-day tasks
     user:
