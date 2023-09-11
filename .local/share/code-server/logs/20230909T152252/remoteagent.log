@@ -1,0 +1,15 @@
+2023-09-09 15:22:53.185 [info] Getting Manifest... redhat.ansible
+2023-09-09 15:22:53.640 [info] Installing extension: redhat.ansible
+2023-09-09 15:22:54.062 [info] Getting Manifest... ms-python.python
+2023-09-09 15:22:54.592 [info] Getting Manifest... redhat.vscode-yaml
+2023-09-09 15:22:55.195 [info] Installing extension: redhat.vscode-yaml redhat.ansible
+2023-09-09 15:22:56.985 [info] Extension signature verification: redhat.vscode-yaml. Verification status: Unverified.
+2023-09-09 15:22:57.147 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.34c1fdf5-a053-4a4e-8207-e326bbfb0b89: redhat.vscode-yaml
+2023-09-09 15:22:57.161 [info] Renamed to /home/student/.local/share/code-server/extensions/redhat.vscode-yaml-1.14.0-universal
+2023-09-09 15:22:57.164 [info] Extracting extension completed. redhat.vscode-yaml
+2023-09-09 15:22:58.727 [info] Extension signature verification: redhat.ansible. Verification status: Unverified.
+2023-09-09 15:22:58.796 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.1e82f35f-0fea-437f-9b0f-1c8c5854eb13: redhat.ansible
+2023-09-09 15:22:58.807 [info] Renamed to /home/student/.local/share/code-server/extensions/redhat.ansible-2.7.98-universal
+2023-09-09 15:22:58.813 [info] Extracting extension completed. redhat.ansible
+2023-09-09 15:22:58.824 [info] Extension installed successfully: redhat.vscode-yaml
+2023-09-09 15:22:58.824 [info] Extension installed successfully: redhat.ansible

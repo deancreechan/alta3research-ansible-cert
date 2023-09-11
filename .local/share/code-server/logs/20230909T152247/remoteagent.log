@@ -1,0 +1,7 @@
+2023-09-09 15:22:48.535 [info] Getting Manifest... golang.go
+2023-09-09 15:22:49.132 [info] Installing extension: golang.go
+2023-09-09 15:22:51.132 [info] Extension signature verification: golang.go. Verification status: Unverified.
+2023-09-09 15:22:51.314 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.93944d8d-13d4-4afa-9f24-e839073177f9: golang.go
+2023-09-09 15:22:51.337 [info] Renamed to /home/student/.local/share/code-server/extensions/golang.go-0.39.1-universal
+2023-09-09 15:22:51.342 [info] Extracting extension completed. golang.go
+2023-09-09 15:22:51.357 [info] Extension installed successfully: golang.go

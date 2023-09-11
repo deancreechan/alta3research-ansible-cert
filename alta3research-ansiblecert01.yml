@@ -1,0 +1,26 @@
+---
+# Documentation: This Ansible playbook fetches the astronaut details from open-notify API and displays them.
+# Author: [Your Name]
+# Date: [Date of Creation]
+
+- name: Fetch Astronaut Details and Gather Local Facts
+  hosts: localhost
+  gather_facts: yes
+  vars:
+    api_endpoint: http://api.open-notify.org/astros.json
+
+  tasks:
+    - name: Fetch astronauts details from API
+      uri:
+        url: "{{ api_endpoint }}"
+        return_content: yes
+      register: astronauts
+
+    - name: Display number of astronauts in space
+      debug:
+        msg: "Number of astronauts in space: {{ astronauts.json.number }}"
+
+    - name: Display astronaut names
+      debug:
+        msg: "Astronaut: {{ item.name }}"
+      with_items: "{{ astronauts.json.people }}"

@@ -1,0 +1,44 @@
+2023-09-09 15:22:29.187 [info] Started initializing default profile extensions in extensions installation folder. file:///home/student/.local/share/code-server/extensions
+2023-09-09 15:22:29.250 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/student/.local/share/code-server/extensions
+2023-09-09 15:22:30.336 [info] Getting Manifest... ms-python.python
+2023-09-09 15:22:30.865 [info] Installing extension: ms-python.python
+2023-09-09 15:22:31.294 [info] Getting Manifest... ms-toolsai.jupyter
+2023-09-09 15:22:32.014 [info] Getting Manifest... ms-toolsai.jupyter-renderers
+2023-09-09 15:22:32.514 [info] Getting Manifest... ms-toolsai.jupyter-keymap
+2023-09-09 15:22:32.901 [info] Getting Manifest... ms-toolsai.vscode-jupyter-cell-tags
+2023-09-09 15:22:33.283 [info] Getting Manifest... ms-toolsai.vscode-jupyter-slideshow
+2023-09-09 15:22:33.830 [info] Installing extension: ms-toolsai.jupyter ms-python.python
+2023-09-09 15:22:33.831 [info] Installing extension: ms-toolsai.jupyter-renderers ms-python.python
+2023-09-09 15:22:33.831 [info] Installing extension: ms-toolsai.jupyter-keymap ms-python.python
+2023-09-09 15:22:33.831 [info] Installing extension: ms-toolsai.vscode-jupyter-cell-tags ms-python.python
+2023-09-09 15:22:33.831 [info] Installing extension: ms-toolsai.vscode-jupyter-slideshow ms-python.python
+2023-09-09 15:22:35.444 [info] Extension signature verification: ms-toolsai.jupyter-keymap. Verification status: Unverified.
+2023-09-09 15:22:35.539 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.19b2f702-ff24-41be-9972-3e4654f01d50: ms-toolsai.jupyter-keymap
+2023-09-09 15:22:35.561 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-toolsai.jupyter-keymap-1.1.0-universal
+2023-09-09 15:22:35.565 [info] Extracting extension completed. ms-toolsai.jupyter-keymap
+2023-09-09 15:22:35.640 [info] Extension signature verification: ms-toolsai.vscode-jupyter-slideshow. Verification status: Unverified.
+2023-09-09 15:22:35.649 [info] Extension signature verification: ms-toolsai.vscode-jupyter-cell-tags. Verification status: Unverified.
+2023-09-09 15:22:35.823 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.5f460c45-a71c-4e3b-9fc5-b64f541d600c: ms-toolsai.vscode-jupyter-slideshow
+2023-09-09 15:22:35.839 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.a4f4de1c-aafb-4fcd-ab1c-b67d4acec0ff: ms-toolsai.vscode-jupyter-cell-tags
+2023-09-09 15:22:35.845 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-toolsai.vscode-jupyter-slideshow-0.1.5-universal
+2023-09-09 15:22:35.847 [info] Extracting extension completed. ms-toolsai.vscode-jupyter-slideshow
+2023-09-09 15:22:35.850 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-toolsai.vscode-jupyter-cell-tags-0.1.8-universal
+2023-09-09 15:22:35.854 [info] Extracting extension completed. ms-toolsai.vscode-jupyter-cell-tags
+2023-09-09 15:22:37.381 [info] Extension signature verification: ms-toolsai.jupyter-renderers. Verification status: Unverified.
+2023-09-09 15:22:37.693 [info] Extension signature verification: ms-toolsai.jupyter. Verification status: Unverified.
+2023-09-09 15:22:38.136 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.3bfaeffa-fdce-4eb2-ba18-b2ced567d411: ms-toolsai.jupyter-renderers
+2023-09-09 15:22:38.145 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-toolsai.jupyter-renderers-1.0.15-universal
+2023-09-09 15:22:38.148 [info] Extracting extension completed. ms-toolsai.jupyter-renderers
+2023-09-09 15:22:38.577 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.2602dc84-ba6a-4371-8439-ff4b314c3ac4: ms-toolsai.jupyter
+2023-09-09 15:22:38.592 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-toolsai.jupyter-2023.2.100-universal
+2023-09-09 15:22:38.599 [info] Extracting extension completed. ms-toolsai.jupyter
+2023-09-09 15:22:43.396 [info] Extension signature verification: ms-python.python. Verification status: Unverified.
+2023-09-09 15:22:46.607 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.4022f035-c169-410c-a407-ac8fa0337870: ms-python.python
+2023-09-09 15:22:46.655 [info] Renamed to /home/student/.local/share/code-server/extensions/ms-python.python-2023.4.1-universal
+2023-09-09 15:22:46.670 [info] Extracting extension completed. ms-python.python
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-toolsai.jupyter-keymap
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-toolsai.vscode-jupyter-slideshow
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-toolsai.vscode-jupyter-cell-tags
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-toolsai.jupyter-renderers
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-toolsai.jupyter
+2023-09-09 15:22:46.680 [info] Extension installed successfully: ms-python.python

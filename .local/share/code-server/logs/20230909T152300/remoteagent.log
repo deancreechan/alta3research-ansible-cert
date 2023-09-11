@@ -1,0 +1,7 @@
+2023-09-09 15:23:01.626 [info] Getting Manifest... vscodevim.vim
+2023-09-09 15:23:02.082 [info] Installing extension: vscodevim.vim
+2023-09-09 15:23:04.090 [info] Extension signature verification: vscodevim.vim. Verification status: Unverified.
+2023-09-09 15:23:04.253 [info] Extracted extension to /home/student/.local/share/code-server/extensions/.85dfcff4-8606-4d44-a1a6-bb9753e410df: vscodevim.vim
+2023-09-09 15:23:04.273 [info] Renamed to /home/student/.local/share/code-server/extensions/vscodevim.vim-1.25.2-universal
+2023-09-09 15:23:04.278 [info] Extracting extension completed. vscodevim.vim
+2023-09-09 15:23:04.288 [info] Extension installed successfully: vscodevim.vim
