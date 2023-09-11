@@ -24,8 +24,8 @@
     debug:
       var: ansible_distribution
 
-  - name: Invoke a simple Bash script to echo 'Hello World' using the Ansible script module
-    script: scripts/hello_world.sh
+  - name: Invoke a simple Bash script to echo 'Hello from Enbridge' using the Ansible script module
+    script: scripts/Hello_from_Enbridge.sh
     register: script_output
 
   - name: Display script output
