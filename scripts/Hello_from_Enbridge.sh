@@ -1,1 +1,3 @@
-HI From Enbridge !!!! 
+#!/bin/bash
+
+echo "HI From Enbridge !!!!"
