@@ -1,0 +1,74 @@
+
+#!/bin/bash
+
+# Variables
+GITLAB_REPO_URL="https://gitlab.com/deancreechan/alta3research-ansible-cert.git"
+
+# Initialize Git repository
+echo "Initializing Git repository..."
+git init
+git remote add origin $GITLAB_REPO_URL
+
+# Create Ansible Playbook
+echo "Creating Ansible playbook..."
+
+cat <<EOL > alta3research-ansiblecert01.yml
+---
+# Documentation: This Ansible playbook fetches the astronaut details from open-notify API and displays them.
+# Author: Dean Creechan
+# Date: Sept 11 2023
+
+- name: Fetch Astronaut Details and Gather Local Facts
+  hosts: localhost
+  gather_facts: yes
+  vars:
+    api_endpoint: http://api.open-notify.org/astros.json
+
+  tasks:
+    - name: Fetch astronauts details from API
+      uri:
+        url: "{{ api_endpoint }}"
+        return_content: yes
+      register: astronauts
+
+    - name: Display number of astronauts in space
+      debug:
+        msg: "Number of astronauts in space: {{ astronauts.json.number }}"
+
+    - name: Display astronaut names
+      debug:
+        msg: "Astronaut: {{ item.name }}"
+      with_items: "{{ astronauts.json.people }}"
+EOL
+
+# Create README.md with instructions
+echo "Creating README.md..."
+
+cat <<EOL > README.md
+## Alta3 Research Ansible Certification Submission
+
+### Prerequisites
+
+- Ansible v2.10+
+- Internet connection (for API call)
+
+### Running the Playbook
+
+1. Clone the repository:
+   git clone $GITLAB_REPO_URL
+   cd alta3research-ansible-cert
+
+2. Run the playbook:
+   ansible-playbook alta3research-ansiblecert01.yml
+
+This playbook fetches details of astronauts currently in space and gathers facts of the localhost.
+EOL
+
+# Commit and push to GitLab
+echo "Pushing to GitLab..."
+git add .
+git commit -m "Initial commit with Ansible playbook and README."
+git push -u origin master
+
+echo "Done! Now review the files and send your submission email."
+
