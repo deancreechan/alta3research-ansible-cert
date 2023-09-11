@@ -11,11 +11,18 @@
       url: http://api.open-notify.org/astros.json
       return_content: yes
     register: astronaut_data
+  - name: Display names of astronauts currently in space
+    debug:
+      msg: "Astronaut {{ item.name }} is currently in space on the {{ item.craft }}."
+    loop: "{{ astronaut_data.json.people }}"
 
+  - name: Display some gathered facts
+    debug:
+      var: ansible_distribution
   - name: Filter astronauts on the ISS
     set_fact:
       astronauts_on_iss: "{{ astronaut_data.json.people | selectattr('craft', 'equalto', 'ISS') | list }}"
-    
+
   - name: Display names of astronauts currently in space
     debug:
       msg: "Astronaut {{ item.name }} is currently in space on the {{ item.craft }}."
@@ -56,7 +63,7 @@
       port: 22
       timeout: 10
     register: port_check
-    ignore_errors: yes
+    ignore_errors: true
 
   - name: Display port status
     debug:
