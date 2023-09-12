@@ -1,5 +1,25 @@
 ---
-- name: Alta3 Research Ansible Certification Playbook
+---
+- hosts: localhost
+  gather_facts: yes
+  vars:
+    my_file: "/tmp/alta3_research.txt"
+  
+  tasks:
+  - name: Check if today has a 'T' in its name
+    set_fact:
+      today_has_t: "{{ ('T' in ansible_date_time['day_of_week']) }}"
+
+  - name: Execute the Hello_from_Enbridge script if today has a 'T'
+    script: scripts/Hello_from_Enbridge.sh
+    when: today_has_t
+
+  - name: Echo a note if today doesn't have a 'T'
+    debug:
+      msg: "Wait for a day with a 'T' to run the script."
+    when: not today_has_t
+
+ - name: Alta3 Research Ansible Certification Playbook
   hosts: localhost
   gather_facts: yes
   vars:
