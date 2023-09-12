@@ -5,9 +5,15 @@
     my_file: "/tmp/alta3_research.txt"
 
   tasks:
+    - name: Get the current date on the managed node
+      command: date "+%A"
+      register: current_date
+      changed_when: false
+
     - name: Check if today has a 'T' in its name
       set_fact:
-        today_has_t: "{{ ('T' in ansible_date_time['day_of_week']) }}"
+        today_has_t: "{{ 'T' in current_date.stdout }}"
+
 
     - name: Execute the Hello_from_Enbridge script if today has a 'T'
       script: scripts/Hello_from_Enbridge.sh
