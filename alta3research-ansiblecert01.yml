@@ -80,6 +80,7 @@
       cert_file_name: "scripts/Cert_{{ ansible_date_time.date }}_{{ ansible_date_time.hour }}-{{ ansible_date_time.minute }}.txt"
 
   - name: Copy astronaut data to the dynamically named Cert.txt
+    become: yes
     copy:
       dest: "{{ cert_file_name }}"
       content: "{{ astronaut_data.json | to_nice_json }}"
